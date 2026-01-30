@@ -1,3 +1,34 @@
+// 1. SET UP THE PERMANENT AD BLOCKER
+const AD_RULES = [
+    {
+        "id": 1,
+        "priority": 1,
+        "action": { "type": "block" },
+        "condition": {
+            "urlFilter": "*pmolink*",
+            "resourceTypes": ["xmlhttprequest", "media", "other"]
+        }
+    },
+    {
+        "id": 2,
+        "priority": 1,
+        "action": { "type": "block" },
+        "condition": {
+            "urlFilter": "*finallygotthexds.site*",
+            "resourceTypes": ["xmlhttprequest", "media", "other"]
+        }
+    }
+];
+
+// Apply the rules as soon as the extension installs/updates
+chrome.runtime.onInstalled.addListener(() => {
+    chrome.declarativeNetRequest.updateDynamicRules({
+        removeRuleIds: [1, 2], // Clean old rules
+        addRules: AD_RULES
+    });
+    console.log("Ad-blocking rules activated.");
+});
+
 chrome.webRequest.onBeforeRequest.addListener(
     (details) => {
         chrome.storage.local.get(['isCapturing'], (res) => {
