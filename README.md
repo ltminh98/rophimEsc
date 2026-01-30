@@ -2,6 +2,6 @@
 
 ## Sử dụng:
 - Tải repo này về và upload lên chrome bằng cách vào Manage Extensions -> Load unpacked
-- Vào rophim, chọn phim và tải
+- Vào rophim, chọn phim. Mở extension lên để lấy link m3u8.
 
 ### *tính năng phụ: chặn quảng cáo đầu phim. No more men88*
